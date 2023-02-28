@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="icon" type="image/png" href="/images/logo.png">
+    <link rel="stylesheet" href="style/style.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--<title>Admin Dashboard Panel</title>--> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+</head>
+<body onload="readTextFile('data.txt')">
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="images/logo.png" alt="">
+            </div>
+
+            <span class="logo_name">Measuring volume</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="link-name">Dashboard</span>
+                </a></li>
+                <li><a href="pages/calculator.html">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Calculator</span>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+            <img src="images/profile.jpg" alt="">
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Distance from ESP32</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <span class="number">
+                            <canvas id="myChart"></canvas>
+                                <script>
+                                    var ctx = document.getElementById('myChart').getContext('2d');
+                                    var chart = new Chart(ctx, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ['data1', 'data2', 'data3', 'data4', 'data5', 'data6', 'data7', 'data8', 'data9', 'data10', 'data11', 'data12'],
+                                                datasets: [{
+                                                    label: 'Values',
+                                                    data: [0, 0, 0, 0],
+                                                    backgroundColor: [
+                                                        'rgba(74, 222, 222, 0.4)',
+                                                        'rgba(26, 167, 236,0.4)',
+                                                        'rgba(30, 47, 151,0.4)',
+                                                        'rgba(74, 222, 222, 0.4)',
+                                                        'rgba(26, 167, 236,0.4)',
+                                                        'rgba(30, 47, 151,0.4)',
+                                                        'rgba(74, 222, 222, 0.4)',
+                                                        'rgba(26, 167, 236,0.4)',
+                                                        'rgba(30, 47, 151,0.4)',
+                                                        'rgba(74, 222, 222, 0.4)',
+                                                        'rgba(26, 167, 236,0.4)',
+                                                        'rgba(30, 47, 151,0.4)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgba(74, 222, 222, 1)',
+                                                        'rgba(26, 167, 236,1)',
+                                                        'rgba(30, 47, 151,1)',
+                                                        'rgba(74, 222, 222, 1)',
+                                                        'rgba(26, 167, 236,1)',
+                                                        'rgba(30, 47, 151,1)',
+                                                        'rgba(74, 222, 222, 1)',
+                                                        'rgba(26, 167, 236,1)',
+                                                        'rgba(30, 47, 151,1)',
+                                                        'rgba(74, 222, 222, 1)',
+                                                        'rgba(26, 167, 236,1)',
+                                                        'rgba(30, 47, 151,1)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                        options: {
+                                            scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                                </script>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-clock"></i>
+                    <span class="text">Recent Data</span>
+                </div>
+
+                <div class="activity-data">
+                    <div class="data names">
+                        <span class="data-title">ESP32</span>
+                        <spaan class="data-list"><div id="result"></div></spaan>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script/script.js"></script>
+</body>
+</html>

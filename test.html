@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <label for="status">Status:</label>
+        <select name="status" id="status" onchange="toggleFields()">
+          <option value="" selected disabled>None</option>
+          <option value="off">Off</option>
+          <option value="on">On</option>
+        </select>
+        
+        <div id="message" style="display: none;">
+          <label for="message-box">Message:</label>
+          <input type="text" id="message-box">
+        </div>
+        
+        <div id="number" style="display: none;">
+          <label for="number-box">Number:</label>
+          <input type="number" id="number-box">
+        </div>
+          <script src="script/test.js"></script>
+    </body>
+</html>
